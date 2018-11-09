@@ -29,7 +29,8 @@ body {
   background: #282828;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to bottom, #3a3a3a, #282828);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to bottom, #3a3a3a, #282828); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  transition: all 700ms;
+  transition-property: width, left;
+  transition-duration: .7s;
   z-index: 9999;
   box-shadow: 0 0 15px black;
 }
@@ -37,7 +38,8 @@ body {
 /* Make the Side Bar fully visible */
 .side-bar:hover, .side-bar.active {
   left: 0px;
-  transition: all 700ms;
+  transition-property: width;
+  transition-duration: .7s;
   box-shadow: 0 0 15px black, 0 0 35px black;
 }
 
@@ -122,6 +124,7 @@ body {
     margin: 6px 0px;
     background-color: #000;
   }
+
 }
 
 .load {
@@ -160,11 +163,22 @@ body {
   text-shadow: 0 0 30px rgba(0, 0, 0, .5);
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  transition: .7s;
 }
 
 
-@media screen and (max-width: 492px) {
+@media screen and (max-width: 490px) {
   .slider-title p {
+    border: none;
+    padding: 0;
+    background-color: inherit;
+    box-shadow: none;
+    transition-property: border, padding, background-color, box-shadow;
+    transition-duration: all .7s;
+    font-size: 20vw;
+  }
+  .lorem {
+    width: 90%!important;
   }
 }
 
