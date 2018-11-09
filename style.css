@@ -36,10 +36,15 @@ body {
 }
 
 /* Make the Side Bar fully visible */
-.side-bar:hover, .side-bar.active {
+.side-bar.active {
   left: 0px;
   transition-property: width;
   transition-duration: .7s;
+  box-shadow: 0 0 15px black, 0 0 35px black;
+}
+.side-bar:hover {
+  left: 0px;
+  transition: .7s;
   box-shadow: 0 0 15px black, 0 0 35px black;
 }
 
