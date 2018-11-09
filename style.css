@@ -18,21 +18,17 @@ body {
   width: 100%;
 }
 
-.side-bar > * {
-  position: fixed;
-}
 
 /* The whole Side Bar */
 .side-bar {
   position: fixed;
   width: 200px;
   left: -180px;
-  height: 100%;
+  height: 100vh;
   /* background-color: #3a3a3a; */
   background: #282828;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to bottom, #3a3a3a, #282828);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to bottom, #3a3a3a, #282828); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: -webkit-linear-gradient(to bottom, #3a3a3a, #282828);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #3a3a3a, #282828); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   transition: all 700ms;
   z-index: 9999;
   box-shadow: 0 0 15px black;
@@ -76,7 +72,9 @@ background: linear-gradient(to bottom, #3a3a3a, #282828); /* W3C, IE 10+/ Edge, 
   width: 100%;
   background-color: rgba(0, 0, 0, .55);
   z-index: 9000;
-  position: absolute;
+  position:fixed;
+  top:0;
+  left:0;
   visibility: hidden;
   opacity: 0;
   transition: visibility 1s, opacity 0.5s linear;
