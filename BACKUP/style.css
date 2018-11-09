@@ -258,7 +258,6 @@ body {
 }
 
 .gallery-container {
-  max-width: 100%;
   width: 384px;
   height: 216px;
   margin: .7vw;
@@ -267,7 +266,6 @@ body {
 }
 
 .gallery-container img {
-  max-width: 100%;
   width: 384px;
   height: 216px;
   object-fit: contain;
