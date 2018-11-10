@@ -31,12 +31,13 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #000;
+    background: #161616;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #3a3a3a;
+    border-radius: 1px;
 }
 
 
@@ -50,9 +51,9 @@ body {
   left: -180px;
   height: 100vh;
   /* background-color: #3a3a3a; */
-  background: #282828;
-  background: -webkit-linear-gradient(to bottom, #3a3a3a, #282828);
-  background: linear-gradient(to bottom, #3a3a3a, #282828);
+  background: #161616;
+  background: -webkit-linear-gradient(to bottom, #3a3a3a, #161616);
+  background: linear-gradient(to bottom, #3a3a3a, #161616);
   transition-property: width, left;
   transition-duration: .7s;
   z-index: 9999;
@@ -241,7 +242,7 @@ body {
   border: 6px solid rgba(255, 255, 255, .7);
   padding: 15px 85px;
   text-shadow: 14px 14px 0px rgba(255, 255, 255, .8);
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
   transition: .7s;
   cursor: default;
@@ -355,7 +356,17 @@ body {
   padding: 35px 0;
   background-color: #bfbfbf;
   margin: .5vw auto;
-  font-size: 0;
+  margin-bottom: 50px;
+}
+
+.gallery h1 {
+  text-align: center;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.image-gallery {
+
   display: -ms-flexbox;
   -ms-flexbox-wrap: wrap;
   -ms-flexbox-direction: column;
@@ -365,10 +376,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+
 }
 
-.gallery-container {
+.image-gallery-container {
   cursor: pointer;
   max-width: 100%;
   width: 384px;
@@ -378,16 +389,16 @@ body {
   background-color: #050505;
 }
 
-.gallery-container img {
+.image-gallery-container img {
   max-width: 100%;
   width: 384px;
   height: 216px;
   object-fit: contain;
-  opacity: 0.40;
+  opacity: 0.70;
   transition: .7s;
 }
 
-.gallery-container img:hover {
+.image-gallery-container img:hover {
   opacity: 1;
   transition: .7s;
 }

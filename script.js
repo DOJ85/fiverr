@@ -20,15 +20,41 @@ function closeCover(){
 //   .then(res => res.json())
 //   .then(resJson => console.log(resJson))
 
-var x = document.getElementById("demo");
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
+//geolocation.js
+// How to use Navigator.geolocation
+//
+let G, options, spans;
+
+document.addEventListener('DOMContentLoaded', init);
+
+function init(){
+    if(navigator.geolocation){
+        let giveUp = 1000 * 30;  //30 seconds
+        let tooOld = 1000 * 60 * 60;  //one hour
+        options ={
+            enableHighAccuracy: false,
+            timeout: giveUp,
+            maximumAge: tooOld
+        }
+
+        navigator.geolocation.getCurrentPosition(gotPos, posFail, options);
+    }else{
+        //using an old browser that doesn't support geolocation
     }
 }
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
+
+function gotPos(position){
+    // spans = document.querySelectorAll('p span');
+    console.log(position.coords.latitude);
+    console.log(position.coords.longitude);
+}
+
+function posFail(err){
+    //err is a number
+    let errors = {
+        1: 'No permission',
+        2: 'Unable to determine',
+        3: 'Took too long'
+    }
+    // document.querySelector('h1').textContent = errors[err];
 }
