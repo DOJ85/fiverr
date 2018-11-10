@@ -55,9 +55,9 @@ function gotPos(position){
 function posFail(err){
     //err is a number
     let errors = {
-        1: 'No permission',
-        2: 'Unable to determine',
-        3: 'Took too long'
+        1:document.getElementById('location').innerHTML = 'Enable your Geolocation too see this section',
+        2:document.getElementById('location').innerHTML =  'An error as occured, please retry',
+        3:document.getElementById('location').innerHTML =  'Enable your Geolocation too see this section'
     }
     // document.querySelector('h1').textContent = errors[err];
 }

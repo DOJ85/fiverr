@@ -419,13 +419,29 @@ body {
   box-shadow: 0 0 25px #000;
 }
 
-.meteo {
+.location-section {
   border: 1px solid rgba(0, 0, 0, .2);
   padding: 35px 0;
   background-color: #bfbfbf;
-  margin: .5vw auto;
+  /* margin: .5vw auto; */
   margin-bottom: 50px;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.map {
+  width: 50%;
+}
+
+.map iframe {
+  width: 80%;
+  height: 380px;
+}
+
+.meteo {
+  width: 50%;
 }
 
 .meteo h1 {
