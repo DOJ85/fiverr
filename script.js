@@ -16,13 +16,7 @@ function closeCover(){
   document.getElementById("toggleSideBar").classList.remove("active");
 }
 
-// window.fetch('http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&lang=en&appid=62133f60aa740596c21f37130a69970c')
-//   .then(res => res.json())
-//   .then(resJson => console.log(resJson))
 
-//geolocation.js
-// How to use Navigator.geolocation
-//
 let G, options, spans;
 
 document.addEventListener('DOMContentLoaded', init);
@@ -44,9 +38,18 @@ function init(){
 }
 
 function gotPos(position){
-    // spans = document.querySelectorAll('p span');
-    console.log(position.coords.latitude);
-    console.log(position.coords.longitude);
+  window.fetch('http://api.openweathermap.org/data/2.5/weather?units=metric&lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '&appid=62133f60aa740596c21f37130a69970c')
+  .then(response => {
+  return response.json();
+}).then(data => {
+  // Work with JSON data here
+  document.getElementById('location').innerHTML = data.name;
+  document.getElementById('temp').innerHTML = "Temperature: " + data.main.temp + "°C";
+  document.getElementById('weather').innerHTML = "Humidity: " + data.main.humidity + "%";
+  document.getElementById('windSpeed').innerHTML = "Wind Speed: " + (data.wind.speed * 3.6).toFixed(2) + "Km/h";
+}).catch(err => {
+  // Do something for an error here
+});
 }
 
 function posFail(err){

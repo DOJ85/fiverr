@@ -328,7 +328,9 @@ body {
   bottom: 0;
   left: 0;
   height: 50px;
-  background-color: #3a3a3a;
+  background: #161616;
+  background: -webkit-linear-gradient(to left, #3a3a3a, #161616);
+  background: linear-gradient(to left, #3a3a3a, #161616);
   text-align: center;
   color: #a0a0a0;
 }
@@ -408,12 +410,31 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 70px;
 }
 
 .youtube-video iframe,
 .youtube-video object,
 .youtube-video embed {
   box-shadow: 0 0 25px #000;
+}
+
+.meteo {
+  border: 1px solid rgba(0, 0, 0, .2);
+  padding: 35px 0;
+  background-color: #bfbfbf;
+  margin: .5vw auto;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.meteo h1 {
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.meteo p {
+  line-height: 190%;
 }
 
 
