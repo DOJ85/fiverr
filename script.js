@@ -43,10 +43,12 @@ function gotPos(position){
   return response.json();
 }).then(data => {
   // Work with JSON data here
-  document.getElementById('location').innerHTML = data.name;
+  document.getElementById('location').innerHTML = data.name + " | " + data.sys.country;
   document.getElementById('temp').innerHTML = "Temperature: " + data.main.temp + "°C";
   document.getElementById('weather').innerHTML = "Humidity: " + data.main.humidity + "%";
   document.getElementById('windSpeed').innerHTML = "Wind Speed: " + (data.wind.speed * 3.6).toFixed(2) + "Km/h";
+  document.getElementById('longitude').innerHTML = "Longitude: " + data.coord.lon;
+  document.getElementById('latitude').innerHTML = "Latitude: " + data.coord.lat;
 }).catch(err => {
   // Do something for an error here
 });

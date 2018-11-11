@@ -181,6 +181,27 @@ body {
   	height: 90%;
   }
 
+  .location-section {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column!important;
+  }
+
+  .map {
+    width: 100%!important;
+    margin-bottom: 35px;
+  }
+
+  .map iframe {
+    width: 90%;
+  }
+
+  .meteo {
+    width: 100%;
+  }
+
 }
 
 .load {
@@ -438,6 +459,8 @@ body {
 .map iframe {
   width: 80%;
   height: 380px;
+  border: 1px solid rgba(0, 0, 0, .4);
+  box-shadow: 0 0 25px #000;
 }
 
 .meteo {

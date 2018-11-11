@@ -12,11 +12,36 @@ html {
 body {
   position: relative;
   margin: 0;
+  overflow-x: hidden;
   /* padding-bottom: 5rem; */
   min-height: 100%;
   height: 100vh;
   width: 100%;
+  /* background-color: #cecece; */
+  background: #c1c1c1;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #cecece, #c1c1c1);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #cecece, #c1c1c1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #161616;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #3a3a3a;
+    border-radius: 1px;
+}
+
+
+
 
 
 /* The whole Side Bar */
@@ -26,18 +51,30 @@ body {
   left: -180px;
   height: 100vh;
   /* background-color: #3a3a3a; */
-  background: #282828;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #3a3a3a, #282828);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #3a3a3a, #282828); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  transition: all 700ms;
+  background: #161616;
+  background: -webkit-linear-gradient(to bottom, #3a3a3a, #161616);
+  background: linear-gradient(to bottom, #3a3a3a, #161616);
+  transition-property: width, left;
+  transition-duration: .7s;
   z-index: 9999;
   box-shadow: 0 0 15px black;
 }
 
+.side-bar *::selection {
+  color: none;
+  background: none;
+}
+
 /* Make the Side Bar fully visible */
-.side-bar:hover, .side-bar.active {
+.side-bar.active {
   left: 0px;
-  transition: all 700ms;
+  transition-property: width;
+  transition-duration: .7s;
+  box-shadow: 0 0 15px black, 0 0 35px black;
+}
+.side-bar:hover {
+  left: 0px;
+  transition: .7s;
   box-shadow: 0 0 15px black, 0 0 35px black;
 }
 
@@ -122,6 +159,49 @@ body {
     margin: 6px 0px;
     background-color: #000;
   }
+
+  .youtube-video {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  	position: relative;
+  	padding-bottom: 56.25%;
+  	padding-top: 30px;
+  	height: 0;
+  	overflow: hidden;
+  }
+
+  .youtube-video iframe,
+  .youtube-video object,
+  .youtube-video embed {
+  	position: absolute;
+  	top: 0;
+  	width: 90%;
+  	height: 90%;
+  }
+
+  .location-section {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column!important;
+  }
+
+  .map {
+    width: 100%!important;
+    margin-bottom: 35px;
+  }
+
+  .map iframe {
+    width: 90%;
+  }
+
+  .meteo {
+    width: 100%;
+  }
+
 }
 
 .load {
@@ -137,6 +217,30 @@ body {
   animation: slide 20s infinite;
   box-shadow: 0 0 25px black, 0 0 35px black;
   margin-bottom: 70px;
+  overflow: hidden;
+}
+
+.slider-title:after {
+  z-index: 50;
+  content: "";
+  background-image: url("images/grain.png");
+  height: 300%;
+  width: 300%;
+  opacity: 0.3;
+  position: relative;
+  animation: grain 8s steps(10) infinite;
+}
+@keyframes grain {
+  0%, 100% { transform:translate(-20%, 0%) }
+  10% { transform:translate(-30%, 0%) }
+  20% { transform:translate(-20%, 0%) }
+  30% { transform:translate(-30%, 0%) }
+  40% { transform:translate(-20%, 0%) }
+  50% { transform:translate(-30%, 0%) }
+  60% { transform:translate(-20%, 0%) }
+  70% { transform:translate(-30%, 0%) }
+  80% { transform:translate(-20%, 0%) }
+  90% { transform:translate(-30%, 0%) }
 }
 
 .slider-title {
@@ -149,22 +253,42 @@ body {
 }
 
 .slider-title p {
-  font-weight: 300;
+  position: absolute;
+  z-index: 100;
+  font-weight: 100;
   word-wrap: nowrap;
   font-size: 100px;
   max-width: 100%;
   color: rgba(255, 255, 255, .9);
-  letter-spacing: 40px;
   border: 6px solid rgba(255, 255, 255, .7);
   padding: 15px 85px;
-  text-shadow: 0 0 30px rgba(0, 0, 0, .5);
-  background-color: rgba(255, 255, 255, 0.5);
+  text-shadow: 14px 14px 0px rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  transition: .7s;
+  cursor: default;
+}
+
+.slider-title p::selection {
+  color: none;
+  background: none;
 }
 
 
-@media screen and (max-width: 492px) {
+@media screen and (max-width: 490px) {
   .slider-title p {
+    z-index: 200;
+    border: none;
+    padding: 0;
+    background-color: inherit;
+    box-shadow: none;
+    transition-property: border, padding, background-color, box-shadow, text-shadow;
+    transition-duration: all .7s;
+    font-size: 20vw;
+    text-shadow: 0 0 30px rgba(0, 0, 0, .5);
+  }
+  .lorem {
+    width: 90%!important;
   }
 }
 
@@ -225,7 +349,9 @@ body {
   bottom: 0;
   left: 0;
   height: 50px;
-  background-color: #3a3a3a;
+  background: #161616;
+  background: -webkit-linear-gradient(to left, #3a3a3a, #161616);
+  background: linear-gradient(to left, #3a3a3a, #161616);
   text-align: center;
   color: #a0a0a0;
 }
@@ -243,9 +369,27 @@ body {
   margin-bottom: 70px;
 }
 
+.lorem p::selection {
+  color: #d30000;
+  background: none;
+}
+
 .gallery {
+  border: 1px solid rgba(0, 0, 0, .2);
+  padding: 35px 0;
+  background-color: #bfbfbf;
   margin: .5vw auto;
-  font-size: 0;
+  margin-bottom: 50px;
+}
+
+.gallery h1 {
+  text-align: center;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.image-gallery {
+
   display: -ms-flexbox;
   -ms-flexbox-wrap: wrap;
   -ms-flexbox-direction: column;
@@ -255,9 +399,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
-.gallery-container {
+.image-gallery-container {
+  cursor: pointer;
+  max-width: 100%;
   width: 384px;
   height: 216px;
   margin: .7vw;
@@ -265,18 +412,70 @@ body {
   background-color: #050505;
 }
 
-.gallery-container img {
+.image-gallery-container img {
+  max-width: 100%;
   width: 384px;
   height: 216px;
   object-fit: contain;
-  opacity: 0.40;
+  opacity: 0.70;
   transition: .7s;
 }
 
-.gallery-container img:hover {
+.image-gallery-container img:hover {
   opacity: 1;
   transition: .7s;
 }
+
+.youtube-video {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+.youtube-video iframe,
+.youtube-video object,
+.youtube-video embed {
+  box-shadow: 0 0 25px #000;
+}
+
+.location-section {
+  border: 1px solid rgba(0, 0, 0, .2);
+  padding: 35px 0;
+  background-color: #bfbfbf;
+  /* margin: .5vw auto; */
+  margin-bottom: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.map {
+  width: 50%;
+}
+
+.map iframe {
+  width: 80%;
+  height: 380px;
+  border: 1px solid rgba(0, 0, 0, .4);
+  box-shadow: 0 0 25px #000;
+}
+
+.meteo {
+  width: 50%;
+}
+
+.meteo h1 {
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.meteo p {
+  line-height: 190%;
+}
+
 
 
 .footer-height {
