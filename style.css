@@ -18,9 +18,9 @@ body {
   height: 100vh;
   width: 100%;
   /* background-color: #cecece; */
-  background: #c1c1c1;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #cecece, #c1c1c1);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #cecece, #c1c1c1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #021128;
+  background: -webkit-linear-gradient(to right, #021128, #0c2c5b, #021128);
+  background: linear-gradient(to right, #021128, #0c2c5b, #021128);
 
 }
 
@@ -215,7 +215,7 @@ body {
   width: 100%;
   height: 85%;
   animation: slide 20s infinite;
-  box-shadow: 0 0 25px black, 0 0 35px black;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5), 0 0 35px rgba(0, 0, 0, .5);
   margin-bottom: 70px;
   overflow: hidden;
 }
@@ -367,6 +367,7 @@ body {
   width: 50%;
   text-align: center;
   margin-bottom: 70px;
+  color: #d3d3d3;
 }
 
 .lorem p::selection {
@@ -374,10 +375,50 @@ body {
   background: none;
 }
 
+
+.popup{
+    width: 900px;
+    margin: auto;
+    text-align: center
+}
+.popup img{
+    width: 200px;
+    height: 200px;
+    cursor: pointer
+}
+.show{
+    z-index: 999;
+    display: none;
+}
+.show .overlay{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.66);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.show .img-show{
+    width: 600px;
+    height: 400px;
+    background: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden
+}
+
+
+
+
 .gallery {
-  border: 1px solid rgba(0, 0, 0, .2);
+  border: 1px solid rgba(0, 0, 0, .8);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
   padding: 35px 0;
-  background-color: #bfbfbf;
+  background: #413F54;
+  background: -webkit-linear-gradient(to right, #23212d,#413F54, #23212d );
+  background: linear-gradient(to right, #23212d,#413F54, #23212d );
   margin: .5vw auto;
   margin-bottom: 50px;
 }
@@ -443,7 +484,11 @@ body {
 .location-section {
   border: 1px solid rgba(0, 0, 0, .2);
   padding: 35px 0;
-  background-color: #bfbfbf;
+  border: 1px solid rgba(0, 0, 0, .8);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  background: #413F54;
+  background: -webkit-linear-gradient(to right, #23212d,#413F54, #23212d );
+  background: linear-gradient(to right, #23212d,#413F54, #23212d );
   /* margin: .5vw auto; */
   margin-bottom: 50px;
   text-align: center;
