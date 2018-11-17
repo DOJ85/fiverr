@@ -49,6 +49,7 @@ function gotPos(position){
   document.getElementById('windSpeed').innerHTML = "Wind Speed: " + (data.wind.speed * 3.6).toFixed(2) + "Km/h";
   document.getElementById('longitude').innerHTML = "Longitude: " + data.coord.lon;
   document.getElementById('latitude').innerHTML = "Latitude: " + data.coord.lat;
+  document.getElementById("mapIframe").src = "https://maps.tilehosting.com/styles/streets/?key=7rA8GuYazjj6IJMuVv70#11.76/" + data.coord.lat + "/" + data.coord.lon;
 }).catch(err => {
   // Do something for an error here
 });

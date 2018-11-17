@@ -23,12 +23,8 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init(){
     if(navigator.geolocation){
-        let giveUp = 1000 * 30;  //30 seconds
-        let tooOld = 1000 * 60 * 60;  //one hour
         options ={
             enableHighAccuracy: false,
-            timeout: giveUp,
-            maximumAge: tooOld
         }
 
         navigator.geolocation.getCurrentPosition(gotPos, posFail, options);
@@ -49,6 +45,12 @@ function gotPos(position){
   document.getElementById('windSpeed').innerHTML = "Wind Speed: " + (data.wind.speed * 3.6).toFixed(2) + "Km/h";
   document.getElementById('longitude').innerHTML = "Longitude: " + data.coord.lon;
   document.getElementById('latitude').innerHTML = "Latitude: " + data.coord.lat;
+  document.getElementById("map").style.display = "inherit";
+  var location = [data.coord.lat, data.coord.lon];
+  var map = L.map('map').setView(location, 10);
+  L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png',{maxZoom: 20}).addTo(map);
+  var pointer = L.marker(location).addTo(map);
+
 }).catch(err => {
   // Do something for an error here
 });

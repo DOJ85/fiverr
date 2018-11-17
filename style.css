@@ -22,6 +22,7 @@ body {
   background: -webkit-linear-gradient(to right, #010f23, #00132d, #010f23);
   background: linear-gradient(to right, #010f23, #00132d, #010f23);
 
+
 }
 
 /* width */
@@ -198,12 +199,16 @@ hr {
     margin-bottom: 35px;
   }
 
-  .map iframe {
+  .map #map {
     width: 90%;
   }
 
   .meteo {
     width: 100%;
+  }
+
+  .lorem {
+    width: 90%!important;
   }
 
 }
@@ -290,9 +295,6 @@ hr {
     transition-duration: all .7s;
     font-size: 20vw;
     text-shadow: 0 0 30px rgba(0, 0, 0, .5);
-  }
-  .lorem {
-    width: 90%!important;
   }
 }
 
@@ -504,9 +506,14 @@ hr {
 
 .map {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.map iframe {
+.map #map {
+  display: none;
   width: 80%;
   height: 380px;
   border: 1px solid rgba(0, 0, 0, .4);
