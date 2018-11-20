@@ -34,7 +34,7 @@ function init(){
 }
 
 function gotPos(position){
-  window.fetch('http://api.openweathermap.org/data/2.5/weather?units=metric&lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '&appid=62133f60aa740596c21f37130a69970c')
+  window.fetch('https://api.openweathermap.org/data/2.5/weather?units=metric&lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '&appid=62133f60aa740596c21f37130a69970c')
   .then(response => {
   return response.json();
 }).then(data => {
@@ -48,7 +48,7 @@ function gotPos(position){
   document.getElementById("map").style.display = "inherit";
   var location = [data.coord.lat, data.coord.lon];
   var map = L.map('map').setView(location, 10);
-  L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png',{maxZoom: 20}).addTo(map);
+  L.tileLayer('https://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png',{maxZoom: 20}).addTo(map);
   var pointer = L.marker(location).addTo(map);
 
 }).catch(err => {
