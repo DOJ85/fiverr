@@ -83,11 +83,15 @@ $(".image-id").each(function() {
   $(".image-id").click(function(){
     $imgsrc = this.id;
     $(this).addClass('image-active');
+    $('#overlay').css('visibility', 'visible');
     console.log($imgsrc);
   })
   });
 
-
+$("#overlay").click(function() {
+  $('.image-id').removeClass('image-active');
+  $('#overlay').css('visibility', 'hidden');
+})
 
 
 
