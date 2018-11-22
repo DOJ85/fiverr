@@ -423,7 +423,7 @@ hr {
 
 
 
-.popup{
+/* .popup{
     width: 900px;
     margin: auto;
     text-align: center
@@ -454,7 +454,7 @@ hr {
     left: 50%;
     transform: translate(-50%,-50%);
     overflow: hidden
-}
+} */
 
 
 
@@ -512,6 +512,20 @@ hr {
 .image-gallery-container img:hover {
   opacity: 1;
   transition: .7s;
+}
+
+/* #image-id-1:active, #image-id-2:active, #image-id-3:active, #image-id-4:active,
+#image-id-5:active, #image-id-6:active, #image-id-7:active, #image-id-8:active,
+#image-id-9:active, #image-id-10:active {
+  width: 100%;
+  height: auto;
+} */
+
+.image-active {
+  height: 100vh !important;
+  width: inherit!important;
+  z-index: 9999;
+  position: absolute;
 }
 
 .youtube-video {
