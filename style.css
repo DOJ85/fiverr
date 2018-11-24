@@ -209,6 +209,8 @@ hr {
     width: 100%;
   }
 
+
+
   .lorem {
     display: inherit!important;
   }
@@ -464,7 +466,7 @@ hr {
   height: 216px;
   object-fit: contain;
   opacity: 0.70;
-  transition: .7s;
+  transition: .7s; /* close transition */
 }
 
 .image-gallery-container img:hover {
@@ -473,7 +475,8 @@ hr {
 }
 
 .image-active {
-  height: 90% !important;
+  height: auto !important;
+  max-height: 90vh!important;
   width: auto !important;
   max-width: 90% !important;
   z-index: 8000;
@@ -484,7 +487,7 @@ hr {
   margin: 0 !important;
   padding: 0 !important;
   opacity: 1 !important;
-
+  /* open transition */
 }
 
 #overlay {
